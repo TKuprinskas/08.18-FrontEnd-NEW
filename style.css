@@ -1,0 +1,89 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+h1 {
+  color: aliceblue;
+}
+
+body {
+  background: url(https://img.freepik.com/free-photo/two-tennis-ball-near-black-net-ground_23-2147924631.jpg?size=626&ext=jpg);
+  background-size: cover;
+}
+
+table {
+  width: 75%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 1rem;
+  color: aliceblue;
+  margin: 0 auto;
+}
+
+table,
+th,
+td {
+  border-bottom: 0.1rem solid rgba(185, 179, 179, 0.801);
+}
+
+td:not(:last-child) {
+  border-right: 0.1rem solid rgba(185, 179, 179, 0.801);
+}
+
+#td1,
+#td2 {
+  width: 30%;
+}
+
+#td3,
+#td4 {
+  width: 20%;
+}
+
+#image {
+  max-height: 432px;
+  max-width: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+th {
+  font-size: x-large;
+}
+
+tr {
+  font-size: large;
+}
+
+.rows:hover {
+  cursor: pointer;
+}
+
+.linktoindex {
+  text-decoration: none;
+  color: aliceblue;
+  border-bottom: 1px solid #fff;
+}
+
+footer {
+  color: aliceblue;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #fff;
+}
+
+#output {
+  color: aliceblue;
+  font-size: large;
+  text-align: center;
+}
+
+#output img {
+  max-width: 100%;
+}
+
+#pTitle {
+  font-size: x-large;
+}
