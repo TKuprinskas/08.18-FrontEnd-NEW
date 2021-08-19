@@ -87,3 +87,12 @@ footer {
 #pTitle {
   font-size: x-large;
 }
+
+#pDescription {
+  text-align: justify;
+}
+
+#pPrice {
+  font-weight: bold;
+  font-size: large;
+}

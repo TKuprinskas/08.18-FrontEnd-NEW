@@ -25,15 +25,17 @@ const renderDataToElement = (data, element) => {
   const div = document.createElement("div");
   const img = document.createElement("img");
   const pPrice = document.createElement("p");
+  pPrice.id = "pPrice";
   const pTitle = document.createElement("p");
   pTitle.id = "pTitle";
   const pDescription = document.createElement("p");
+  pDescription.id = "pDescription";
   const divHero = document.createElement("div");
 
   pTitle.textContent = product.title;
   pDescription.textContent = product.description;
   divHero.append(pTitle, pDescription);
-  pPrice.textContent = `${product.price}€`;
+  pPrice.textContent = `Price: ${product.price}€`;
   img.src = product.image;
   div.append(img, divHero, pPrice);
   element.appendChild(div);
