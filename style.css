@@ -9,7 +9,7 @@ h1 {
 }
 
 body {
-  background: url(https://img.freepik.com/free-photo/two-tennis-ball-near-black-net-ground_23-2147924631.jpg?size=626&ext=jpg);
+  background: url(https://images.unsplash.com/photo-1595412916059-1034e17aaf85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80);
   background-size: cover;
 }
 
@@ -27,28 +27,23 @@ th,
 td {
   border-bottom: 0.1rem solid rgba(185, 179, 179, 0.801);
 }
-
 td:not(:last-child) {
   border-right: 0.1rem solid rgba(185, 179, 179, 0.801);
 }
-
 #td1,
 #td2 {
   width: 30%;
 }
-
 #td3,
 #td4 {
   width: 20%;
 }
-
 #image {
   max-height: 432px;
   max-width: 200px;
   display: block;
   margin: 0 auto;
 }
-
 th {
   font-size: x-large;
 }
@@ -56,43 +51,76 @@ th {
 tr {
   font-size: large;
 }
-
 .rows:hover {
   cursor: pointer;
 }
-
 .linktoindex {
   text-decoration: none;
   color: aliceblue;
   border-bottom: 1px solid #fff;
 }
-
 footer {
   color: aliceblue;
   text-align: center;
   padding: 1rem;
   border-top: 1px solid #fff;
 }
-
 #output {
   color: aliceblue;
   font-size: large;
   text-align: center;
+  width: 100%;
 }
-
 #output img {
-  max-width: 100%;
+  width: 25%;
 }
-
 #pTitle {
-  font-size: x-large;
+  font-size: larger;
+  font-weight: bold;
 }
-
 #pDescription {
   text-align: justify;
 }
-
+#pInfo {
+  font-size: large;
+}
 #pPrice {
   font-weight: bold;
-  font-size: large;
+  font-size: larger;
+}
+
+.orders {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#orderForm {
+  width: 50%;
+  padding: 0 1rem;
+  margin-left: 2rem;
+}
+
+#orderForm input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0.1rem solid rgba(185, 179, 179, 0.801);
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+#orderForm label {
+  font-weight: bold;
+  color: aliceblue;
+}
+
+#orderForm button {
+  color: orange;
+  padding: 0.1rem 1rem;
+}
+
+#orderForm h2 {
+  color: aliceblue;
 }

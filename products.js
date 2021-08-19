@@ -24,6 +24,8 @@ const renderDataToElement = (data, element) => {
   const product = data[0];
   const div = document.createElement("div");
   const img = document.createElement("img");
+  const pInfo = document.createElement("p");
+  pInfo.id = "pInfo";
   const pPrice = document.createElement("p");
   pPrice.id = "pPrice";
   const pTitle = document.createElement("p");
@@ -32,11 +34,42 @@ const renderDataToElement = (data, element) => {
   pDescription.id = "pDescription";
   const divHero = document.createElement("div");
 
+  pInfo.textContent = product.info;
   pTitle.textContent = product.title;
   pDescription.textContent = product.description;
-  divHero.append(pTitle, pDescription);
+  divHero.append(pTitle, pInfo, pDescription);
   pPrice.textContent = `Price: ${product.price}€`;
   img.src = product.image;
   div.append(img, divHero, pPrice);
   element.appendChild(div);
 };
+
+// Order form
+
+const form = document.getElementById("orderForm");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = e.target.elements.name.value.trim();
+  const email = e.target.elements.email.value.trim();
+  const product_id = params;
+  console.log(name, email, product_id);
+
+  fetch("http://localhost:3000/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      email,
+      product_id,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      alert(data.msg);
+      form.reset();
+    })
+    .catch((e) => console.log(e));
+});

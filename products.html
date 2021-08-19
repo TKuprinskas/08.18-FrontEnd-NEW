@@ -20,7 +20,23 @@
     <div class="container">
       <a class="linktoindex" href="index.html">View all products</a>
       <h1>Tennis e-shop</h1>
-      <div id="output"></div>
+      <div class="orders">
+        <div id="output"></div>
+
+        <form id="orderForm">
+          <h2>Order form:</h3>
+          <label for="name">Full name:</label>
+          <input type="text" id="name" placeholder="Name Surname.." required />
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Email address.."
+            required
+          />
+          <button type="submit" id="buyBTN">BUY</button>
+        </form>
+      </div>
     </div>
   </body>
   <footer>CopyRight reserved @ 2021</footer>
