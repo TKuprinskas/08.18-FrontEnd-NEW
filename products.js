@@ -38,7 +38,7 @@ const renderDataToElement = (data, element) => {
   pTitle.textContent = product.title;
   pDescription.textContent = product.description;
   divHero.append(pTitle, pInfo, pDescription);
-  pPrice.textContent = `Price: ${product.price}€`;
+  pPrice.textContent = product.price;
   img.src = product.image;
   div.append(img, divHero, pPrice);
   element.appendChild(div);
@@ -53,7 +53,9 @@ form.addEventListener("submit", (e) => {
   const name = e.target.elements.name.value.trim();
   const email = e.target.elements.email.value.trim();
   const product_id = params;
-  console.log(name, email, product_id);
+  const price = document.getElementById("pPrice");
+
+  console.log(name, email, product_id, price);
 
   fetch("http://localhost:3000/orders", {
     method: "POST",
@@ -64,6 +66,7 @@ form.addEventListener("submit", (e) => {
       name,
       email,
       product_id,
+      price,
     }),
   })
     .then((res) => res.json())
