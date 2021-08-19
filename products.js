@@ -26,6 +26,8 @@ const renderDataToElement = (data, element) => {
   const img = document.createElement("img");
   const pInfo = document.createElement("p");
   pInfo.id = "pInfo";
+  const p = document.createElement("p");
+  p.id = "pp";
   const pPrice = document.createElement("p");
   pPrice.id = "pPrice";
   const pTitle = document.createElement("p");
@@ -34,13 +36,14 @@ const renderDataToElement = (data, element) => {
   pDescription.id = "pDescription";
   const divHero = document.createElement("div");
 
+  p.textContent = "Price €";
   pInfo.textContent = product.info;
   pTitle.textContent = product.title;
   pDescription.textContent = product.description;
   divHero.append(pTitle, pInfo, pDescription);
   pPrice.textContent = product.price;
   img.src = product.image;
-  div.append(img, divHero, pPrice);
+  div.append(img, divHero, p, pPrice);
   element.appendChild(div);
 };
 

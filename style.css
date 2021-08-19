@@ -87,8 +87,14 @@ footer {
 #pPrice {
   font-weight: bold;
   font-size: larger;
+  margin-top: 0;
 }
 
+#pp {
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: larger;
+}
 .orders {
   display: flex;
   justify-content: space-between;
