@@ -48,15 +48,13 @@ const renderDataToElement = (data, element) => {
 };
 
 // Order form
-
 const form = document.getElementById("orderForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   const name = e.target.elements.name.value.trim();
   const email = e.target.elements.email.value.trim();
   const product_id = params;
-  const price = document.getElementById("pPrice");
+  const price = +document.getElementById("pPrice").innerHTML;
 
   console.log(name, email, product_id, price);
 
