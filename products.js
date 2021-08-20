@@ -25,16 +25,16 @@ const renderDataToElement = (data, element) => {
   const div = document.createElement("div");
   const img = document.createElement("img");
   const pInfo = document.createElement("p");
-  pInfo.id = "pInfo";
   const p = document.createElement("p");
-  p.id = "pp";
   const pPrice = document.createElement("p");
-  pPrice.id = "pPrice";
   const pTitle = document.createElement("p");
-  pTitle.id = "pTitle";
   const pDescription = document.createElement("p");
-  pDescription.id = "pDescription";
   const divHero = document.createElement("div");
+  pInfo.id = "pInfo";
+  p.id = "pp";
+  pPrice.id = "pPrice";
+  pTitle.id = "pTitle";
+  pDescription.id = "pDescription";
 
   p.textContent = "Price €";
   pInfo.textContent = product.info;
