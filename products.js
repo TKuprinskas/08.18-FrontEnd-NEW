@@ -33,6 +33,7 @@ const productRender = async (data, element) => {
   prTitle.style.fontWeight = "bold";
   prTitle.style.fontSize = "2rem";
   prTitle.style.margin = "0 0 1rem 0";
+  about.style.textAlign = "justify";
 
   outputData.forEach((chekedPrd) => {
     prTitle.textContent = chekedPrd.title;
