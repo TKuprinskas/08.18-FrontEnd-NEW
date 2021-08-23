@@ -1,79 +1,70 @@
 const queryString = window.location.search;
 const params = queryString.split("=")[1];
 const url = "http://localhost:3000/products";
-const output = document.getElementById("output");
+const urlOrders = "http://localhost:3000/orders";
+const productPlace = document.getElementById("output");
 
 const getProduct = async (url, params) => {
   try {
-    const response = await fetch(`${url}/${params}`).then((data) =>
-      data.json()
-    );
+    const response = await fetch(`${url}/${params}`).then((res) => res.json());
     return response;
-  } catch (err) {
-    return console.error(err);
+  } catch (e) {
+    return console.error(e);
   }
 };
 
-getProduct(url, params).then((data) => renderDataToElement(data, output));
+getProduct(url, params).then((data) => productRender(data, productPlace));
 
-const renderDataToElement = (data, element) => {
+const productRender = async (data, element) => {
   if (data.length === 0) {
     return console.log("No data");
   }
-
-  const product = data[0];
+  const outputData = await data.filter((item) => item._id === params);
   const div = document.createElement("div");
   const img = document.createElement("img");
-  const pInfo = document.createElement("p");
-  const p = document.createElement("p");
-  const pPrice = document.createElement("p");
-  const pTitle = document.createElement("p");
-  const pDescription = document.createElement("p");
-  const divHero = document.createElement("div");
-  pInfo.id = "pInfo";
-  p.id = "pp";
-  pPrice.id = "pPrice";
-  pTitle.id = "pTitle";
-  pDescription.id = "pDescription";
+  const pricePlace = document.createElement("p");
+  const prTitle = document.createElement("p");
+  const about = document.createElement("p");
+  div.style.margin = "3rem 1rem 3rem 2rem";
+  div.style.padding = "2rem";
+  div.style.textAlign = "center";
+  div.style.border = "1px solid black";
+  div.style.borderRadius = "2rem";
+  prTitle.style.fontWeight = "bold";
+  prTitle.style.fontSize = "2rem";
+  prTitle.style.margin = "0 0 1rem 0";
 
-  p.textContent = "Price €";
-  pInfo.textContent = product.info;
-  pTitle.textContent = product.title;
-  pDescription.textContent = product.description;
-  divHero.append(pTitle, pInfo, pDescription);
-  pPrice.textContent = product.price;
-  img.src = product.image;
-  div.append(img, divHero, p, pPrice);
-  element.appendChild(div);
+  outputData.forEach((chekedPrd) => {
+    prTitle.textContent = chekedPrd.title;
+    about.textContent = chekedPrd.description;
+    pricePlace.textContent = `€ ${chekedPrd.price}`;
+    img.src = chekedPrd.image;
+    img.alt = chekedPrd.title;
+    img.style.width = "20rem";
+    div.append(prTitle, img, about, pricePlace);
+    element.appendChild(div);
+
+    document.getElementById("orderForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const client = e.target.elements[0].value.trim();
+      const clEmail = e.target.elements[1].value.trim();
+      fetch(urlOrders, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: client,
+          email: clEmail,
+          product_id: params,
+          price: chekedPrd.price,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => alert(`Jūsų užsakyta prekė yra ${chekedPrd.title}`));
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
+    });
+  });
 };
-
-// Order form
-const form = document.getElementById("orderForm");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = e.target.elements.name.value.trim();
-  const email = e.target.elements.email.value.trim();
-  const product_id = params;
-  const price = +document.getElementById("pPrice").innerHTML;
-
-  console.log(name, email, product_id, price);
-
-  fetch("http://localhost:3000/orders", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      name,
-      email,
-      product_id,
-      price,
-    }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      alert(data.msg);
-      form.reset();
-    })
-    .catch((e) => console.log(e));
-});

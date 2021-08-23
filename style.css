@@ -71,30 +71,11 @@ footer {
   text-align: center;
   width: 100%;
 }
+
 #output img {
   width: 25%;
 }
-#pTitle {
-  font-size: larger;
-  font-weight: bold;
-}
-#pDescription {
-  text-align: justify;
-}
-#pInfo {
-  font-size: large;
-}
-#pPrice {
-  font-weight: bold;
-  font-size: larger;
-  margin-top: 0;
-}
 
-#pp {
-  margin-bottom: 0;
-  font-weight: bold;
-  font-size: larger;
-}
 .orders {
   display: flex;
   justify-content: space-between;
