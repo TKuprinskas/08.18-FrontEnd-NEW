@@ -62,10 +62,16 @@ const productRender = async (data, element) => {
         }),
       })
         .then((res) => res.json())
-        .then((data) => alert(`Jūsų užsakyta prekė yra ${chekedPrd.title}`));
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 1000);
+        .then((data) => {
+          if (data.length > 0) {
+            alert(`Jūsų užsakyta prekė yra ${chekedPrd.title}`);
+            setTimeout(() => {
+              window.location.href = "index.html";
+            }, 1000);
+          } else {
+            alert(`Negalime užsakyti šios prekės. Pamėginkite vėliau`);
+          }
+        });
     });
   });
 };
